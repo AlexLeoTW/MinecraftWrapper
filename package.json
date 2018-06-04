@@ -1,0 +1,18 @@
+{
+  "name": "play-minecraft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AlexLeoTW",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.1.1",
+    "should": "^13.2.1"
+  }
+}
