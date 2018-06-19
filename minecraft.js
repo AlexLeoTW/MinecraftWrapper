@@ -45,7 +45,7 @@ new Promise((resolve , reject) => {
 .then(() => {
   console.log('============ server ============');
   const server = new MinecraftServer(
-    [].concat(serverConfig.ops).concat('-jar'),
+    [].concat(serverConfig.javaArgs).concat('-jar'),
     path.join('./server', serverConfig.serverJar)
   );
   const stdin = readline.createInterface({
@@ -70,6 +70,7 @@ new Promise((resolve , reject) => {
   });
 })
 
+// TODO: trigger autoShutdown only after last user logout for 10 min.
 function autoShutdown(server) {
   setTimeout(() => {
     if (server.players.size > 0) {
@@ -78,7 +79,7 @@ function autoShutdown(server) {
       server.stop();
     }
   // }, 10*60*1000)    // 10 minutes
-}, 30*1000)    // 30 sec.
+  }, 30*1000)    // 30 sec.
 }
 
 // close and save server
@@ -95,14 +96,6 @@ function stopRoutine() {
     }, 5*1000)
   })
 }
-
-
-
-
-
-
-
-
 
 function getIp() {
   var interfaces = os.networkInterfaces();
